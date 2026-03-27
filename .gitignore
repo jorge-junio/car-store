@@ -1,0 +1,126 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+*venv*
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Static files (collectstatic)
+staticfiles/
+
+# Media files (uploads)
+media/
+
+# # Migrations (opcional - cuidado em projetos reais)
+# **/migrations/*
+# !**/migrations/__init__.py
+
+# Pytest / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker (se usar)
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs/
+*.log
+
+# Backup files
+*.bak
+*.tmp
+
+# Celery (se usar)
+celerybeat-schedule
+
+# Sentry / profiling
+.prof
+
+# Gunicorn
+gunicorn.pid
+
+# Node (caso use frontend junto)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build frontend (React/Vue/etc)
+dist/
+build/
+
+# Static collected (alternativo)
+static/
+
+# Coverage reports
+coverage/
+
+# SQLite (reforço)
+*.sqlite3
+
+# Secrets
+secrets.json
