@@ -14,12 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from accounts.views import register_view, login_view, logout_view
-from cars.views import NewCarCreateView, CarsListView, CarDetailView
+from cars.views import (
+    NewCarCreateView, CarsListView, CarDetailView, CarUpdateView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,6 @@ urlpatterns = [
     path('cars/', CarsListView.as_view(), name='cars_list'),
     path('new_car/', NewCarCreateView.as_view(), name='new_car'),
     path('car/<int:pk>/', CarDetailView.as_view(), name='car_detail'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('car/<int:pk>/update/', CarUpdateView.as_view(), name='car_update'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static('/static_files/', document_root=os.path.join(settings.BASE_DIR, 'static_files'))
