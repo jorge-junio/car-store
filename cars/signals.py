@@ -3,6 +3,7 @@ from django.db.models.signals import (
 from django.db.models import Sum
 from django.dispatch import receiver
 from cars.models import Car, CarInventory
+from openai_api.client import get_car_ai_bio
 
 
 def car_inventory_update():
@@ -21,7 +22,18 @@ def car_inventory_update():
 
 @receiver(pre_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
-    ...
+    create = kwargs.get('create')
+    # não vamos gerar bio em updates, só nos creates
+    if create is True and not instance.bio:
+        instance.bio = 'SEM BIO'
+        # Essa linha foi comentada pois não temos tokens da plataforma
+        # para testar a função, mas a ideia era ter a bio gerada
+        # automaticamente pela IA.
+        # instance.bio = get_car_ai_bio(
+        #     model=instance.model,
+        #     brand=instance.brand,
+        #     year=instance.year
+        # )
 
 
 @receiver(pre_delete, sender=Car)
